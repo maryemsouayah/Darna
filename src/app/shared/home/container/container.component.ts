@@ -43,6 +43,7 @@ export class ContainerComponent implements OnInit {
   idHome ;
   photo;
   imageSrc: string = "../../../../assets/images/home.png";
+  imageDefaultSponsor:string="../../../../assets/images/spon.png"
   filesToUpload: Array<File>;
 
   constructor(
@@ -153,6 +154,7 @@ export class ContainerComponent implements OnInit {
 
         reader.onload = (event: any) => {
           this.imageSrc = event.target.result;
+          this.imageDefaultSponsor=event.target.result;
         }
 
         reader.readAsDataURL(event.target.files[0]);
@@ -409,10 +411,19 @@ addSponsors() {
     return;
   }
   let data = {};
+  if (this.filesToUpload === undefined) {
+    // 
+    data = {
+      lien: this.addSponsorForm.value.lien,
+      photo: 'spon.png',
+    };
+
+  }else{
     data = {
       lien: this.addSponsorForm.value.lien,
       photo: this.filesToUpload[0].name,
     };
+  }
 
   this.SponsorsService.addNewSponsor(data).subscribe((res) => {
     Swal.fire('Sponsor ajouté avec succès!', '', 'success');
