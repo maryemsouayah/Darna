@@ -25,7 +25,7 @@ export class ListeDemandeComponent implements OnInit {
   getListDemands() {
    // this.SpinnerService.show();
     this.listDemandService.getListDemand().subscribe((res: any) => {
-      console.log(res[0]);
+      //console.log(res[0]);
       this.demands = res;
      // this.SpinnerService.hide();
     });
