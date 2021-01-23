@@ -1,0 +1,370 @@
+.signup_wrapper {
+    padding: 27px 0px;
+    margin-left: -53px;
+  }
+  
+  .login_form_wrapper {
+    float: left;
+    padding-left: 10%;
+    padding-right: 17%;
+    width: 127%;
+  
+    text-align: center;
+    height: auto;
+  }
+  
+  #menu-accordeon {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    width: 44px;
+  }
+  
+  #menu-accordeon ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+  }
+  
+  #menu-accordeon li {
+    background-color: white;
+  
+    border-radius: 6px;
+    margin-bottom: 2px;
+    border: none;
+  }
+  
+  #menu-accordeon li li {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+    border-radius: 0;
+    background: white;
+    box-shadow: none;
+    border: none;
+    margin: 0;
+  }
+  
+  #menu-accordeon a {
+    display: block;
+    text-decoration: none;
+    color: #1d1c1c;
+    padding: 8px 0;
+    font-family: verdana;
+    font-size: 1.2em;
+  }
+  
+  #menu-accordeon ul li a,
+  #menu-accordeon li:hover li a {
+    font-size: 1em;
+  }
+  
+  #menu-accordeon li:hover {
+    background: #a1a2a3;
+  }
+  
+  #menu-accordeon li li:hover {
+    background: #a6a7a8;
+  }
+  
+  #menu-accordeon ul li:last-child {
+    border-radius: 0 0 6px 6px;
+    border: none;
+  }
+  
+  #menu-accordeon li:hover li {
+    max-height: 15em;
+  }
+  
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+  .prec {
+    margin-top: -43px;
+  }
+  
+  .actions {
+    margin-top: -46px;
+    margin-left: 204px;
+    float: right;
+  }
+  
+  .AddSearch {
+    width: 108%;
+    margin-top: -95px;
+  }
+  
+  button.w3-button {
+    width: 59px;
+    border: none;
+    background-color: white;
+  }
+  
+  .opening_job h1 a {
+    border-radius: 60px;
+    background-color: #9183bb;
+    padding-top: 0%;
+    margin-left: 8%;
+  }
+  
+  .btc_team_social_wrapper {
+    background-color: #ff4d4d;
+  }
+  
+  .company_main_wrapper {
+    width: 100%;
+    height: auto;
+  }
+  
+  .IconToEditMember {
+    color: turquoise;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .IconToEditMember:hover {
+    background-color: turquoise;
+    color: white;
+  }
+  
+  .IconToDeleteMember {
+    padding: 10px;
+    border-radius: 5px;
+    color: #ff4d4d;
+  }
+  
+  .IconToDeleteMember:hover {
+    background-color: #ff4d4d;
+    color: white;
+  }
+  
+  .company_img_cont_wrapper {
+    padding-top: 15%;
+  }
+  
+  .modal-footer {
+    margin-top: 0%;
+    margin-right: 24px;
+  }
+  
+  .modal-title {
+    margin-left: 81px;
+  }
+  
+  .form-control-sm {
+    height: 41px;
+  }
+  
+  .icon_form i {
+    position: absolute;
+    top: 17px;
+    right: 22px;
+    color: #9183bb;
+  }
+  
+  .comments_form .form-control:focus,
+  .comments_form .form-control:hover {
+    color: #111;
+    background-color: transparent;
+    border: 1px solid #1dcec8 !important;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .company_img_wrapper img {
+    margin-left: -34px;
+    width: 120%;
+    margin-top: -3pc;
+    margin-bottom: -1pc;
+  }
+  
+  .save {
+    background-color: #1dcec8;
+    border-color: #1dcec8;
+  }
+  
+  .annuler {
+    background-color: #ff4d4d;
+    border-color: #ff4d4d;
+  }
+  
+  .blog_pagination_section .third_pagger a {
+    background: #2dc8cb;
+    color: #fff;
+  }
+  
+  .classbottom {
+    margin-top: 0px;
+  }
+  
+  .container {
+    margin-bottom: 5px;
+  }
+  
+  .company_img_wrapper {
+    float: left;
+    width: 100%;
+    position: relative;
+    padding: 35px;
+    padding-bottom: 0px;
+    text-align: center;
+  }
+  
+  .card {
+    width: 100%;
+    height: 90%;
+  }
+  
+  
+  .classFlexNameEdittools {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+  
+  .images_event {
+    width: 700;
+    height: 400;
+  }
+  
+  .addbtn {
+    background-color: #1dcec8;
+    border: none;
+  }
+  
+  .bgSizeContain {
+    width: 700;
+    height: 400;
+  }
+  
+  .cover {
+    background-color: #f1efff;
+  }
+  
+  .justifyLabel {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .test2:focus:not([readonly]) {
+    border-bottom: 1px solid #ce93d8;
+    box-shadow: 0 1px 0 0 #ce93d8;
+  }
+  .test input[type=text] {
+    border: 1px solid #a9e4f1;
+  }
+  
+  .icon-s{
+    color: #1dcec8;
+  }
+  .imgEventDefault{
+    width: 17%;
+    height: 12%;
+    border-radius: 10%;
+    float: right;
+    margin-bottom: 3%;
+    margin-right: 5%;
+  }
+  .styleInfoEvent{
+    display: flex;
+    flex-direction: row;
+  }
+  .IconToDeleteDemande:hover {
+    background-color: #ff4d4d;
+    color: white;
+  }
+  
+  .IconToDeleteDemande {
+    padding: 10px;
+    border-radius: 5px;
+    color: #ff4d4d;
+  }
+  .IconToAcceptDemande {
+    color: #80ffd4;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .IconToAcceptDemande:hover {
+    background-color: #80ffd4;
+    color: white;
+    visibility: visible;
+  }
+  
+  .IconToEit {
+    color: #8e08fc;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .IconToEit:hover {
+    background-color: #c7baf4;
+    color: white;
+  }
+  .inline li { 
+    display:inline; 
+  }
+  .inlineSection{
+    margin-left: 80%;
+    font-size: 28px;
+   
+  }
+  .inline{
+    margin-left: 70%;
+    font-size: 28px;
+  }
+  .btn{
+    color:white;
+  }
+  .imgDefault{
+    width: 13%;
+    height: 13%;
+    border-radius: 80%;
+    float: right;
+    padding-bottom: 3%;
+  }
+  .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+
+  .objectiflex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+.col-lg-6 {
+
+    max-width: 128%;
+}
+.sponsor {
+    padding: 40px 30px;
+    /* transition: all 0.5s; */
+    /* -webkit-border-radius: 100px; */
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+.addSpon {
+    margin-top: -84px;
+    margin-left: 299px;
+}

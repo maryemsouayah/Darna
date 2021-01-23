@@ -1,0 +1,32 @@
+.IconToDeleteDemande:hover {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.IconToDeleteDemande {
+  padding: 10px;
+  border-radius: 5px;
+  color: #ff4d4d;
+}
+
+.IconToAcceptDemande {
+  color: #80ffd4;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.IconToAcceptDemande:hover {
+  background-color: #80ffd4;
+  color: white;
+}
+
+.listeDemandeflex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.DemansBtnsFlex {
+  margin-top: 5%;
+
+}

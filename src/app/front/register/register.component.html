@@ -1,0 +1,174 @@
+<app-navbar></app-navbar>
+
+<!-- top header wrapper end -->
+<!-- sign up wrapper start -->
+<div class="login_wrapper jb_cover">
+  <div class="line_shape">
+    <img src="../../../../assets/images/line.png" class="img-responsive" alt="img" />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="counter_jbbb2 jb_cover">
+        <img src="../../../../assets/images/line3.png" class="img-responsive" alt="img" />
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 picregister">
+        <div class="login_top_box jb_cover">
+          <div class="login_banner_wrapper">
+            <div class="jp_regis_center_tag_wrapper jb_register_red_or color">
+              <h1>DARNA</h1>
+            </div>
+          </div>
+
+          <form [formGroup]="InscriptionForm" (ngSubmit)="register()">
+            <img src="../../../assets/images/darnalogo.png" width="250px" alt="logo" class="logoLogin" />
+
+            <div class="login_form_wrapper signup_wrapper">
+              <h2>Inscription</h2>
+              <div class="form-group icon_form comments_form">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control require" formControlName="fullName"
+                      placeholder="Nom et prénom*" [ngClass]="{
+                        'is-invalid': submitted && f.fullName.errors
+                      }" required />
+                    <i class="fas fa-user"></i>
+                    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                      <div *ngIf="f.fullName.errors.required">
+                        * ce champ obligatoire
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="date" class="form-control require" formControlName="birthDate"
+                      title="Date de naissance" [ngClass]="{
+                        'is-invalid': submitted && f.birthDate.errors
+                      }" required />
+                    <div *ngIf="submitted && f.birthDate.errors" class="invalid-feedback">
+                      <div *ngIf="f.birthDate.errors.required">
+                        * ce champ obligatoire
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group icon_form comments_form">
+                <input type="text" class="form-control require" formControlName="email" placeholder="Email*"
+                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required />
+                <i class="fas fa-envelope"></i>
+                <div class="alert alert-danger" *ngIf="
+                    InscriptionForm.controls['email'].errors &&
+                    InscriptionForm.controls['email'].errors.email
+                  ">
+                  * Veuillez insérer un e-mail valide
+                </div>
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">
+                    * ce champ obligatoire
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group icon_form comments_form">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control require" formControlName="phone" placeholder="Téléphone*"
+                      [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" required />
+                    <i class="flaticon-telephone"></i>
+                    <div class="alert alert-danger" *ngIf="
+                        InscriptionForm.controls['phone'].errors &&
+                        InscriptionForm.controls['phone'].errors.pattern
+                      ">
+                      * le numéro doit contenir seulement des chiffres
+                    </div>
+                    <div class="alert alert-danger" *ngIf="
+                        InscriptionForm.controls['phone'].touched &&
+                        InscriptionForm.controls['phone'].errors
+                      ">
+                      * le numéro doit avoir au minimum 8 chiffres
+                    </div>
+
+                    <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                      <div *ngIf="f.phone.errors.required">
+                        * ce champ obligatoire
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control require" formControlName="job" placeholder="Profession*"
+                      [ngClass]="{ 'is-invalid': submitted && f.job.errors }" required />
+                    <i class="fas fa-suitcase"></i>
+                    <div *ngIf="submitted && f.job.errors" class="invalid-feedback">
+                      <div *ngIf="f.job.errors.required">
+                        * ce champ obligatoire
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group icon_form comments_form">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input type="password" class="form-control require" formControlName="password"
+                      placeholder="Mot de passe*" [ngClass]="{
+                        'is-invalid': submitted && f.password.errors
+                      }" required />
+                    <i class="fas fa-lock"></i>
+                    <div class="alert alert-danger" *ngIf="
+                        InscriptionForm.controls['password'].touched &&
+                        InscriptionForm.controls['password'].errors
+                      ">
+                      * le mot de passe doit avoir au minimum 6 caractéres
+                    </div>
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">
+                        * ce champ obligatoire
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="password" class="form-control require" formControlName="confirmPassword"
+                      placeholder="Confirmer mot de passe*" required />
+                    <i class="fas fa-lock"></i>
+                    <div class="alert alert-danger" *ngIf="
+                        InscriptionForm.controls['confirmPassword'].touched &&
+                        InscriptionForm.controls['confirmPassword'].status ===
+                          'INVALID'
+                      ">
+                      *verifier que les mots de passe sont identiques
+                    </div>
+
+                    <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                      <div *ngIf="f.confirmPassword.errors.required">
+                        * ce champ obligatoire
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="signup-Cpassword" class="control-label sr-only">Photo</label>
+
+                <input type='file' (change)="readURL($event)" required />
+                <img class=" imgDefault" id="file-input" [src]="imageSrc" alt="your image" />
+
+
+              </div>
+              <div>
+                <button class="form-btn" type="submit">S'inscrire</button>
+              </div>
+              <div class="dont_have_account jb_cover">
+                <p>
+                  Avez-vous un compte déja? <a routerLink="/login">login</a>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

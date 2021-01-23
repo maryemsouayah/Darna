@@ -1,0 +1,98 @@
+<div class="cp_navi_main_wrapper index_2_top_header index_3_top_header jb_cover">
+  <div class="cp_navi_main_wrapper index_2_top_header index_3_top_header jb_cover">
+    <header class="mobail_menu d-block d-sm-block d-md-block d-lg-none d-xl-none">
+    </header>
+    <div class="cp_logo_wrapper index_2_logo">
+      <a routerLink="/">
+        <img src="../../../../assets/images/darnalogo.png" width="160px" alt="logo" />
+      </a>
+    </div>
+    <!--index_3_logo mobile menu area start -->
+
+    <div class="jb_navigation_wrapper index_2_right_menu index_3_right_menu">
+      <div class="posting_job">
+        <ul>
+
+          <li class="btn_hover">
+            <a *ngIf="!isLoggedIn" routerLink="/login">Login</a>
+          </li>
+          <li class="btn_hover">
+            <a *ngIf="!isLoggedIn" routerLink="/register">Register</a>
+          </li>
+          <!-- <li class="btn_hover">
+            <a *ngIf="isLoggedIn" (click)="logout()">
+              <i class="fas fa-sign-out-alt"></i>
+              </a>
+          </li> -->
+          <li>
+            <div *ngIf="isLoggedIn" class="jb_profile_box jb_3_profile_box">
+              <div class="nice-select" tabindex="0" > <span class="current">
+                  <img class="imgDefault jp_job_post_side_img"  src="http://localhost:8080/api/getfile/{{connectedUser?.photo}}" alt="img">
+                  <!-- <img *ngIf="role === 'admin'" class="imgDefault" src="../../../../assets/images/admin.png" alt="img"> -->
+                </span>
+                <ul class="list">
+                  <li *ngIf="user.role === 'member'" class="nameFull">
+                    {{connectedUser?.fullName}}
+                  </li>
+                  <li *ngIf="user.role === 'admin'" class="nameFull">
+                    Administrateur
+                  </li>
+                  <li *ngIf="user.role === 'member'"><a href="/profile"><i class="fas fa-user-edit"></i>Profile</a>
+                  </li>
+
+                  <!-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a>
+                        </li>
+                        <li><a href="#"><i class="fas fa-comment"></i>Inbox</a>
+                        </li>
+                        <li><a href="#"><i class="fas fa-cog"></i>Setting</a>
+                        </li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i>Help</a>
+                        </li>
+                        <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a>
+                        </li> -->
+                  <li><a (click)="logout()"><i class="fas fa-sign-in-alt"></i>logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
+        <ul class="main_nav_ul menu_2_ul">
+          <li class="has-mega gc_main_navigation">
+            <a routerLink="/" class="gc_main_navigation active_class active_class2 active_class3">Accueil</a>
+          </li>
+          <li *ngIf="!isLoggedIn || user?.role === 'member'" class="has-mega gc_main_navigation">
+            <a href="#" class="gc_main_navigation">Qui Somme Nous ?</a>
+          </li>
+          <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
+            <a routerLink="/Event" class="gc_main_navigation"> Nos Actions</a>
+          </li>
+          <li *ngIf="user?.role === 'admin'"
+            class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
+            <a routerLink="/listmembers" class="gc_main_navigation"> Membres</a>
+          </li>
+          <li *ngIf="user?.role === 'admin'"
+            class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
+            <a routerLink="/listeDemandes" class="gc_main_navigation">
+              Demandes</a>
+          </li>
+        
+          <li>
+            <a routerLink="/contact" class="gc_main_navigation"> Contact</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- mainmenu end -->
+
+    </div>
+
+  </div>
+
+  <!-- top header wrapper end -->
+  <!-- sign up wrapper start -->
+</div>

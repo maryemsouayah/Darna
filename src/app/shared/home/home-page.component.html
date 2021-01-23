@@ -1,0 +1,864 @@
+
+<div>
+  <div class="cursor"></div>
+  <a href="javascript:" id="return-to-top"><i class="fas fa-angle-double-up"></i>
+  </a>
+  <app-navbar></app-navbar>
+  <router-outlet></router-outlet>
+
+<div *ngFor="let h of home">
+  <div class="main_slider_wrapper slider-area jb_cover">
+    <div class="mains_slider_shaper">
+      <img src="../../../../assets/images/slider_bg.png" class="img-responsive" alt="img" />
+    </div>
+    <div class="slider_small2_shape">
+      <img src="../../../../assets/images/shape4.png" class="img-responsive" alt="img" />
+    </div>
+    <div class="slider_shape_smt bubble-1">
+      <img src="../../../../assets/images/bubble.png" class="img-responsive" alt="img" />
+    </div>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <div class="carousel-captions caption-1">
+           
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                  <div class="content"  >
+                    <div class="slider_shape_smt1 bubble-2">
+                      <img src="../../../../assets/images/famille1.png" class="img-responsive" alt="img" />
+                    </div>
+                    <br />
+                    <h4 data-animation="animated fadeInUp">
+                      <b>{{h.title}}</b>
+                    </h4>
+                    <br />
+                    <h5 data-animation="animated fadeInUp">
+                     {{h.description}}
+                    </h5>
+                    <br />
+                    <h6 data-animation="animated fadeInUp" style="color: #9007fd">
+                       TEL: {{h.phone}}<br />
+                       RIB: {{h.rib}}
+                    </h6>
+     
+                    <div data-animation="animated fadeInUp" class="slider_icon_list">
+                      <ul>
+                        <li>
+                          <a href="https://www.facebook.com/darnatn/"><i class="fab fa-facebook"></i></a>
+                        </li>
+                        <li>
+                          <a href="https://twitter.com/DarnaTn"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="https://www.instagram.com/darnatn/"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                          <a href="https://www.youtube.com/darnatn"><i class="fab fa-youtube"></i></a>
+                        </li>
+                        <li>
+                          <a href="https://darnatn.tumblr.com/"><i class="fab fa-tumblr"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="clear"></div>
+                
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                  <div class="jb_cover" style="margin-top: 10%; margin-left: 16%">
+                    <img class="img-fluid" src="http://localhost:8080/api/getfile/{{h.photo}}" alt="image" />
+                  </div>
+                 
+                  <div *ngIf="user?.role === 'admin'" > 
+                    <ul class="inline inlineSection">
+                      <li>
+                        <a role="button3"  title="supprimer">
+                          <i class="fa fa-trash IconToDeleteMember" (click)="deleteHome(h._id)"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a (click)="openModal(updateHome); getHomeById(h._id)" title="modifier">
+                          <i class="fas fa-edit fa-lg IconToEit"></i>
+                        </a>
+                      </li>
+                    </ul>
+                    </div>
+                  <div class="slider_shape_sm3 bubble-3">
+                    <img src="../../../../assets/images/bubble.png" class="img-responsive" alt="img" />
+                  </div>
+                </div>
+              
+              </div>
+           
+            </div>
+          </div>
+          
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-captions caption-2">
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                  <div class="content">
+                    <div class="slider_shape_smt1 bubble-4">
+                      <img src="../../../../assets/images/bubble.png" class="img-responsive" alt="img" />
+                    </div>
+                    <h2 data-animation="animated fadeInUp">
+                      We Offer <span> 25,000 </span>JobVacancies Right Now!.
+                    </h2>
+  
+                    <p data-animation="animated fadeInUp">
+                      The most complete field service software for IT & Mobile
+                      Support, Fire Services, Electrical, Maintenance, HVAC &
+                      Security Industries
+                    </p>
+                    <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
+                      <a href="#">sign up free</a>
+                    </div>
+                    <div data-animation="animated fadeInUp" class="slider_icon_list">
+                      <ul>
+                        <li>
+                          <a href="#"><i class="fab fa-apple"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-amazon"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-angular"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fas fa-th-large"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fas fa-blog"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                  <div class="slider_shape_sm3 bubble-5">
+                    <img src="../../../../assets/images/bubble.png" class="img-responsive" alt="img" />
+                  </div>
+                  <div class="slider_side_img jb_cover">
+                    <img src="../../../../assets/images/m2.png" class="img-responsive" alt="img" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-captions caption-3">
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                  <div class="content">
+                    <div class="slider_shape_smt1 bubble-6">
+                      <img src="../../../../assets/images/bubble.png" class="img-responsive" alt="img" />
+                    </div>
+                    <h2 data-animation="animated fadeInUp">
+                      We Offer <span> 25,000 </span>Job Vacancies Right Now!.
+                    </h2>
+  
+                    <p data-animation="animated fadeInUp">
+                      The most complete field service software for IT & Mobile
+                      Support, Fire Services, Electrical, Maintenance, HVAC &
+                      Security Industries
+                    </p>
+                    <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
+                      <a href="#">sign up free</a>
+                    </div>
+                    <div data-animation="animated fadeInUp" class="slider_icon_list">
+                      <ul>
+                        <li>
+                          <a href="#"><i class="fab fa-apple"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-amazon"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-angular"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fas fa-th-large"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fas fa-blog"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                  <div class="slider_shape_sm3 bubble-7">
+                    <img src="../../../../assets/images/bubble.png" class="img-responsive" alt="img" />
+                  </div>
+                  <div class="slider_side_img jb_cover">
+                    <img src="../../../../assets/images/slider_img.png" class="img-responsive" alt="img" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+        </ol>
+        <div class="carousel-nevigation">
+          <a class="prev" href="#carousel-example-generic" role="button" data-slide="prev"><i
+              class="flaticon-left-arrow"></i>
+          </a>
+          <a class="next" href="#carousel-example-generic" role="button" data-slide="next"><i
+              class="flaticon-right-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="slider_small_shape">
+      <img src="../../../../assets/images/shape4.png" class="img-responsive" alt="img" />
+    </div>
+  </div>
+  <!-- slider wrapper End -->
+  <!--services wrapper start-->
+  <div class="index3_form_wrapper jb_cover">
+    <div class="slider_small3_shape">
+      <img src="../../../../assets/images/shape4.png" class="img-responsive" alt="img" />
+    </div>
+  </div>
+  <!--service wrapper end-->
+  <!-- best jobs wrapper start-->
+  <div class="best_jobs_wrapper index3_best_job_wrapper jb_cover" style="margin-top: -20%">
+    <div class="line_shape">
+      <img src="../../../../assets/images/line.png" class="img-responsive" alt="img" />
+    </div>
+    <div class="counter_wrapper counter_3_wrapper jb_cover">
+      <div class="container">
+    
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="counter_mockup_design jb_cover">
+              <img src="../../../../assets/images/m1.png" class="img-responsive" alt="img" />
+            </div>
+            <div class="counter_jbbb jb_cover">
+              <img src="../../../../assets/images/line2.png" class="img-responsive" alt="img" />
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="counter_right_wrapper counter_index3_right jb_cover">
+              <h1>Présentation</h1>
+              <h5 style="line-height: 2em">
+                {{h.presentation}}
+              </h5>
+              <br />
+              <div *ngIf="user?.role === 'admin'" >
+              <ul class="inline ">
+                <li>
+                  <a role="button3"  title="supprimer">
+                    <i class="fa fa-trash IconToDeleteMember" (click)="deletePresentation(h._id)"></i>
+                  </a>
+                </li>
+                <li>
+                  <a (click)="  openModal(updatePresentation) ;getHomeById(h._id)" title="Modifier">
+                    <i class="fas fa-edit fa-lg IconToEit"></i>
+                  </a>
+                </li>
+              </ul>
+              </div>
+            
+            
+              <!-- <h5> Notre principal objectif est de créer des unités de vie pour ces enfants-là en leur offrant une maison et une prise en charge complète pour qu’ils aient une vie normale. Une mère de substitution s’occupe de les élever et de leur offrir l’amour qui leur a toujours manqué. </h5> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
+          <div class="jb_heading_wraper">
+         
+            <h3 style="color: #9007fd; margin-top: 10%">Nos Objectifs  
+              <div *ngIf="user?.role === 'admin'" >   
+                <button type="button" class="btn btn-primary addbtn" (click)="openModal(addobj)">
+              <i class="fas fa-plus"> </i> 
+            </button> 
+              </div>
+          </h3> 
+          </div>
+        </div>
+     
+            </div>
+            
+        <div class="col-xl-12 col-lg-12 col-md-12">
+          <div class="tab-content">
+            <div id="home" class="tab-pane active">
+              <div class="objectiflex">
+              <div class="row"  style="width: 560px ;" *ngFor="let g of goal">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                  <div
+                    class="job_listing_left_fullwidth job_listing_grid_wrapper index2_listing_jobs index3_listing_jobs" style="width: 189%;">
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+   
+                        <h4 style="text-align: center">
+                         {{g.goal}}
+                        </h4>
+                      </div>
+                      <div *ngIf="user?.role === 'admin'">
+                      <ul class="inline ">
+                        <li>
+                          <a role="button3"  title="supprimer">
+                            <i  (click)="deleteGoal(g._id)" class="fa fa-trash IconToDeleteMember"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a (click)="openModal(updateGoal); getGoal(g._id)"  title="Modifier">
+                            <i class="fas fa-edit fa-lg IconToEit"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    
+    </div>
+
+
+
+
+
+    <div class="slider_small3_shape">
+      <img src="../../../../assets/images/shape4.png" class="img-responsive" alt="img" />
+    </div>
+
+  
+  <div class="services_wrapper control_wrapper jb_cover">
+    <div class="slider_small_shape44">
+      <img src="../../../../assets/images/shape4.png" class="img-responsive" alt="img" />
+    </div>
+    <div class="counter_jbbb2 jb_cover">
+      <img src="../../../../assets/images/line3.png" class="img-responsive" alt="img" />
+    </div>
+  
+    <div class="slider_small3_shape">
+      <img src="../../../../assets/images/shape4.png" class="img-responsive" alt="img" />
+    </div>
+  </div>
+  <!--services wrapper end-->
+  <!-- download app wrapper start-->
+  <div class="download_wrapper index3_download jb_cover">
+    <div class="line_shape">
+      <img src="../../../../assets/images/line.png" class="img-responsive" alt="img" />
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="download_mockup_design jb_cover">
+            <img src="../../../../assets/images/mockup7.png" class="img-responsive" alt="img" />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="download_app_store jb_cover">
+            <h2> {{h.title}}</h2>
+            <h5>
+              Voici notre RIB: {{h.rib}}
+
+            </h5>
+            <br />
+            <h6>
+              {{h.description}}
+               <br />
+            </h6>
+            <div class="app_btn playstore_2 jb_cover">
+              <a href="http://www.donbyuib.com.tn/darna.html" class="ss_playstore"><span><i
+                    class="fas fa-heart"></i></span>Faire un don</a>
+            </div>
+           
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+  <!--pricing table end-->
+  <!--popular wrapper start-->
+  <div class="popular_wrapper jb_cover">
+    <div class="slider_small3_shape shapenew">
+      <img src="../../../../assets/images/shape4.png" class="img-responsive" alt="img" />
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
+          <div class="jb_heading_wraper">
+            <h3>Nos sponsors<div>   
+                <button type="button" class="btn btn-primary addbtn" (click)="openModal(addSponsor)">
+              <i class="fas fa-plus"> </i> 
+            </button> 
+              </div>
+            </h3>
+          </div>
+        </div>
+      
+        <div class="col-xl-12 col-lg-12 col-md-12">
+          <div class="tab-content">
+            <div id="home" class="tab-pane active">
+              <div class="objectiflex">
+              <div class="row"  style="width: 560px ;" *ngFor="let spon of sponsor">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                  <div
+                    class="job_listing_left_fullwidth job_listing_grid_wrapper index2_listing_jobs index3_listing_jobs" style="width: 189%;">
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+   
+                        <img src="http://localhost:8080/api/getfile/{{spon.photo}}" class="img-responsive" alt="img" />
+                <a href={{spon.lien}} target="_blank">
+                </a>
+                      </div>
+                      <div>
+                        <ul class="inline ">
+                          <li>
+                            <a role="button3"  title="supprimer">
+                              <i  (click)="deleteSponsor(spon._id)" class="fa fa-trash IconToDeleteMember"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a (click)="openModal(updateSponsor); getSponsor(spon._id)"  title="Modifier">
+                              <i class="fas fa-edit fa-lg IconToEit"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+    <!-- addhome -->
+    <ng-template #addhome>
+      <div class="modal-header">
+        <h5 class="modal-title pull-left">Ajouter </h5>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <form [formGroup]="addForm" (ngSubmit)="addHomePage()" style="height: auto;">
+          <div class="login_form_wrapper signup_wrapper">
+            <div class="form-group icon_form comments_form">
+              <input type="text" class="form-control require" formControlName="title" placeholder="Title*"
+                [ngClass]="{ 'is-invalid': submitted && addFormControls.title.errors }" required />
+                <i class="fas fa-align-justify"></i>
+                   <div *ngIf="submitted && addFormControls.title.errors" class="invalid-feedback">
+                <div *ngIf="addFormControls.title.errors.required">* ce champ obligatoire</div>
+              </div>
+            </div>
+            <div class="form-group icon_form comments_form">
+              <textarea  rows="5" cols="40"  class="form-control require" formControlName="description" placeholder="Description*"
+              [ngClass]="{ 'is-invalid': submitted && addFormControls.description.errors }" required ></textarea>
+
+              <i class="fas fa-align-justify"></i>
+      
+              <div *ngIf="submitted && addFormControls.description.errors" class="invalid-feedback">
+                <div *ngIf="addFormControls.description.errors.required">* ce champ obligatoire</div>
+              </div>
+            </div>
+            
+            <div class="form-group icon_form comments_form">
+              <input type="text" class="form-control require" formControlName="phone" placeholder="Téléphone*"
+                [ngClass]="{ 'is-invalid': submitted && addFormControls.phone.errors }" required />
+              <i class="flaticon-telephone"></i>
+              <div class="alert alert-danger" *ngIf="
+                  addForm.controls['phone'].errors &&
+                  addForm.controls['phone'].errors.pattern"> * le numéro doit contenir seulement des chiffres
+              </div>
+              <div class="alert alert-danger" *ngIf="addForm.controls['phone'].touched && addForm.controls['phone'].errors">
+                * le numéro doit avoir au minimum 8 chiffres
+              </div>
+              <div *ngIf="submitted && addFormControls.phone.errors" class="invalid-feedback">
+                <div *ngIf="addFormControls.phone.errors.required">
+                  * ce champ obligatoire
+                </div>
+              </div>
+            </div>
+           
+            <div class="form-group icon_form comments_form">
+              <input type="text" class="form-control require" formControlName="rib" placeholder="Rib*"
+                [ngClass]="{ 'is-invalid': submitted && addFormControls.rib.errors }" required />
+                <i class="fas fa-credit-card"></i>     
+                       <div class="alert alert-danger" *ngIf="
+                  addForm.controls['rib'].errors &&
+                  addForm.controls['rib'].errors.pattern"> * le numéro doit contenir seulement des chiffres
+              </div>
+              <div class="alert alert-danger" *ngIf="addForm.controls['rib'].touched && addForm.controls['rib'].errors">
+                * le numéro doit avoir 20 chiffres seulement
+              </div>
+              <div *ngIf="submitted && addFormControls.rib.errors" class="invalid-feedback">
+                <div *ngIf="addFormControls.rib.errors.required">
+                  * ce champ obligatoire
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="signup-Cpassword" class="control-label sr-only">Photo</label>
+                <!-- <input type="file" id="file-input" name="Photo" class="form-control" (change)="recoverFile($event)" />
+                <img id="file-input" name="Photo"   src="../../../assets/images/ct.png" alt="your image" /> -->
+                <!-- <input type='file' (change)="readURL(this);" />
+                <img id="blah" [src]="url" alt="your image" /> -->
+                <input type='file' (change)="readURL($event)" required />
+                <img class="imgDefault" id="file-input" [src]="imageSrc" alt="your image" />
+
+
+              </div>
+          </div>
+
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary annuler" (click)="resetForm()">
+              Annuler
+            </button>
+            <button type="submit" class="btn btn-primary save">
+              Enregistrer
+            </button>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+
+ <!-- update -->
+ <ng-template #updateHome>
+  <div class="modal-header">
+    <h5 class="modal-title pull-left"> Modifier cette rubrique</h5>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <form [formGroup]="updateForm" (ngSubmit)="editHomePage()" style="height: auto;">
+      <div class="login_form_wrapper signup_wrapper">
+        <div class="form-group icon_form comments_form">
+          <input type="text" class="form-control require" formControlName="title" placeholder="Title*"
+            [ngClass]="{ 'is-invalid': submitted && updateFormControls.title.errors }" required />
+            <i class="fas fa-align-justify"></i>
+               <div *ngIf="submitted && updateFormControls.title.errors" class="invalid-feedback">
+            <div *ngIf="updateFormControls.title.errors.required">* ce champ obligatoire</div>
+          </div>
+        </div>
+        <div class="form-group icon_form comments_form">
+          <textarea  rows="5" cols="40"  class="form-control require" formControlName="description" placeholder="Description*"
+          [ngClass]="{ 'is-invalid': submitted && updateFormControls.description.errors }" required ></textarea>
+
+          <i class="fas fa-align-justify"></i>
+  
+          <div *ngIf="submitted && updateFormControls.description.errors" class="invalid-feedback">
+            <div *ngIf="updateFormControls.description.errors.required">* ce champ obligatoire</div>
+          </div>
+        </div>
+        
+        <div class="form-group icon_form comments_form">
+          <input type="text" class="form-control require" formControlName="phone" placeholder="Téléphone*"
+            [ngClass]="{ 'is-invalid': submitted && updateFormControls.phone.errors }" required />
+          <i class="flaticon-telephone"></i>
+          <div class="alert alert-danger" *ngIf="
+          updateForm.controls['phone'].errors &&
+          updateForm.controls['phone'].errors.pattern"> * le numéro doit contenir seulement des chiffres
+          </div>
+          <div class="alert alert-danger" *ngIf="updateForm.controls['phone'].touched && updateForm.controls['phone'].errors">
+            * le numéro doit avoir au minimum 8 chiffres         </div>
+          <div *ngIf="submitted && updateFormControls.phone.errors" class="invalid-feedback">
+            <div *ngIf="updateFormControls.phone.errors.required">
+              * ce champ obligatoire
+            </div>
+          </div>
+        </div>
+       
+        <div class="form-group icon_form comments_form">
+          <input type="text" class="form-control require" formControlName="rib" placeholder="Rib*"
+            [ngClass]="{ 'is-invalid': submitted && updateFormControls.rib.errors }" required />
+            <i class="fas fa-credit-card"></i>     
+                   <div class="alert alert-danger" *ngIf="
+                   updateForm.controls['rib'].errors &&
+                   updateForm.controls['rib'].errors.pattern"> * le numéro doit contenir seulement des chiffres
+          </div>
+          <div class="alert alert-danger" *ngIf="updateForm.controls['rib'].touched && updateForm.controls['rib'].errors">
+            * le numéro doit avoir 20 chiffres seulement
+          </div>
+          <div *ngIf="submitted && updateFormControls.rib.errors" class="invalid-feedback">
+            <div *ngIf="updateFormControls.rib.errors.required">
+              * ce champ obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="signup-Cpassword" class="control-label sr-only">Photo</label>
+            <!-- <input type="file" id="file-input" name="Photo" class="form-control" (change)="recoverFile($event)" />
+            <img id="file-input" name="Photo"   src="../../../assets/images/ct.png" alt="your image" /> -->
+            <!-- <input type='file' (change)="readURL(this);" />
+            <img id="blah" [src]="url" alt="your image" /> -->
+            <input type='file' (change)="readURL($event)" required />
+            <img class="imgDefault" id="file-input" [src]="imageSrc" alt="your image" />
+
+
+          </div>
+      </div>
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary annuler" (click)="resetForm()">
+          Annuler
+        </button>
+        <button type="submit" class="btn btn-primary save">
+           Modifier
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+ <!-- update presentation -->
+ <ng-template #updatePresentation>
+  <div class="modal-header">
+    <h5 class="modal-title pull-left"> Modifier la Présentation</h5>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <form [formGroup]="updateForm" (ngSubmit)="editHomePage()" style="height: auto;">
+      <div class="login_form_wrapper signup_wrapper">
+        
+        <div class="form-group icon_form comments_form">
+          <textarea  rows="6" cols="50"  class="form-control require" formControlName="presentation" placeholder="Presentation*"
+          [ngClass]="{ 'is-invalid': submitted && updateFormControls.presentation.errors }" required ></textarea>
+
+          <i class="fas fa-align-justify"></i>
+  
+          <div *ngIf="submitted && updateFormControls.presentation.errors" class="invalid-feedback">
+            <div *ngIf="updateFormControls.presentation.errors.required">* ce champ obligatoire</div>
+          </div>
+        </div>
+        
+      
+       
+        
+       
+      </div>
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary annuler" (click)="resetForm()">
+          Annuler
+        </button>
+        <button type="submit" class="btn btn-primary save">
+           Modifier
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+
+<!-- addObjectif-->
+  <ng-template #addobj>
+      <div class="modal-header">
+        <h5 class="modal-title pull-left">Ajouter un objectif </h5>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <form [formGroup]="addGoalForm" (ngSubmit)="addGoal()" style="height: auto;">
+          <div class="login_form_wrapper signup_wrapper">
+            <div class="form-group icon_form comments_form">
+              <textarea  rows="4" cols="40"  type="text" class="form-control require" formControlName="goal" placeholder="goal*"
+                [ngClass]="{ 'is-invalid': submitted && addGoalFormControls.goal.errors }" required > </textarea>
+                <i class="fas fa-align-justify"></i>
+                   <div *ngIf="submitted && addGoalFormControls.goal.errors" class="invalid-feedback">
+                <div *ngIf="addGoalFormControls.goal.errors.required">* ce champ obligatoire</div>
+              </div>
+            </div>
+          
+         
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary annuler" (click)="resetForm()">
+              Annuler
+            </button>
+            <button type="submit" class="btn btn-primary save">
+              Enregistrer
+            </button>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+
+    
+ <!-- update objectif -->
+ <ng-template #updateGoal>
+  <div class="modal-header">
+    <h5 class="modal-title pull-left"> Modifier cet Objectif</h5>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <form [formGroup]="updateGoalForm" (ngSubmit)="editGoal()" style="height: auto;">
+      <div class="login_form_wrapper signup_wrapper">
+        
+        <div class="form-group icon_form comments_form">
+          <textarea  rows="4" cols="40"  class="form-control require" formControlName="goal" placeholder="Goal*"
+          [ngClass]="{ 'is-invalid': submitted && updateGoalFormControls.goal.errors }" required ></textarea>
+
+          <i class="fas fa-align-justify"></i>
+  
+          <div *ngIf="submitted && updateGoalFormControls.goal.errors" class="invalid-feedback">
+            <div *ngIf="updateGoalFormControls.goal.errors.required">* ce champ obligatoire</div>
+          </div>
+        </div>
+        
+      
+       
+        
+       
+      </div>
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary annuler" (click)="resetForm()">
+          Annuler
+        </button>
+        <button type="submit" class="btn btn-primary save">
+           Modifier
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<!-- addSponsor-->
+<ng-template #addSponsor>
+  <div class="modal-header">
+    <h5 class="modal-title pull-left">Ajouter un Sponsor </h5>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <form [formGroup]="addSponsorForm" (ngSubmit)="addSponsors()" style="height: auto;">
+      <div class="login_form_wrapper signup_wrapper">
+        <div class="form-group icon_form comments_form">
+          <input   type="text" class="form-control require" formControlName="lien" placeholder="Lien*"
+            [ngClass]="{ 'is-invalid': submitted && addSponsorFormControls.lien.errors }" required />
+            <i class="fas fa-align-justify"></i>
+               <div *ngIf="submitted && addSponsorFormControls.lien.errors" class="invalid-feedback">
+            <div *ngIf="addSponsorFormControls.lien.errors.required">* ce champ obligatoire</div>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label for="signup-Cpassword" class="control-label sr-only">Logo</label>
+          <!-- <input type="file" id="file-input" name="Photo" class="form-control" (change)="recoverFile($event)" />
+          <img id="file-input" name="Photo"   src="../../../assets/images/ct.png" alt="your image" /> -->
+          <!-- <input type='file' (change)="readURL(this);" />
+          <img id="blah" [src]="url" alt="your image" /> -->
+          <input type='file' (change)="readURL($event)" required  formControlName="logo"/>
+          <img class="imgDefault" id="file-input" [src]="imageSrc" alt="your image" />
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary annuler" (click)="resetForm()">
+          Annuler
+        </button>
+        <button type="submit" class="btn btn-primary save">
+          Enregistrer
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<!-- updateSponsor-->
+<ng-template #updateSponsor>
+  <div class="modal-header">
+    <h5 class="modal-title pull-left">Modifier un Sponsor </h5>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <form [formGroup]="updateSponsorForm" (ngSubmit)="editSponsor()" style="height: auto;">
+      <div class="login_form_wrapper signup_wrapper">
+        <div class="form-group icon_form comments_form">
+          <input   type="text" class="form-control require" formControlName="lien" placeholder="Lien*"
+            [ngClass]="{ 'is-invalid': submitted && updateSponsorFormControls.lien.errors }" required />
+            <i class="fas fa-align-justify"></i>
+               <div *ngIf="submitted && updateSponsorFormControls.lien.errors" class="invalid-feedback">
+            <div *ngIf="updateSponsorFormControls.lien.errors.required">* ce champ obligatoire</div>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label for="signup-Cpassword" class="control-label sr-only">Logo</label>
+          <!-- <input type="file" id="file-input" name="Photo" class="form-control" (change)="recoverFile($event)" />
+          <img id="file-input" name="Photo"   src="../../../assets/images/ct.png" alt="your image" /> -->
+          <!-- <input type='file' (change)="readURL(this);" />
+          <img id="blah" [src]="url" alt="your image" /> -->
+          <input type='file' (change)="readURL($event)" required  formControlName="logo"/>
+          <img class="imgDefault" id="file-input" [src]="imageSrc" alt="your image" />
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary annuler" (click)="resetForm()">
+          Annuler
+        </button>
+        <button type="submit" class="btn btn-primary save">
+          Enregistrer
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+<app-footer></app-footer>
+  
+</div>

@@ -1,0 +1,273 @@
+<div class="job_single_wrapper jb_cover cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="job_filter_category_sidebar jb_cover" style="background-color: white">
+                    <div class="job_filter_sidebar_heading profileHeader">
+                        <h1> Profil : <b> {{connectedUser?.fullName}}</b> </h1>
+                        <i class="fa fa-edit iconToEditProfile" data-toggle="modal" data-target="#updateProfile"
+                            title="Modifier mon profile" style="float: right;"> </i>
+                        <i class="fa fa-key iconToEditPassword" (click)="openModal(updatePassword)"
+                            title="Modifier mon mot de passe"></i>
+
+
+                    </div>
+                    <div class="job_overview_header jb_cover">
+                        <div class="jb_job_overview_img">
+                            <img class=" imgMember" src="http://localhost:8080/api/getfile/{{connectedUser?.photo}}"
+                                alt="member picture" />
+                            <!-- <ul class="job_single_lists listsMember">
+                                <li ><h5 class="card-title">{{user?.fullName}}</h5>
+                                </li>
+                            </ul> -->
+                        </div>
+                        <div class="jp_listing_overview_list_main_wrapper jb_cover" style="margin-top:-10%;">
+                            <div class="jp_listing_list_icon">
+                                <i class="fa fa-envelope IconE"></i>
+                            </div>
+                            <div class="jp_listing_list_icon_cont_wrapper">
+                                <ul>
+                                    <li>Adresse mail</li>
+                                    <li>{{connectedUser?.email}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                            <div class="jp_listing_list_icon">
+                                <i class="fa fa-briefcase IconE"></i>
+                            </div>
+                            <div class="jp_listing_list_icon_cont_wrapper">
+                                <ul>
+                                    <li>Profession</li>
+                                    <li>{{connectedUser?.job}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                            <div class="jp_listing_list_icon">
+                                <i class="far fa-calendar IconE"></i>
+                            </div>
+                            <div class="jp_listing_list_icon_cont_wrapper">
+                                <ul>
+                                    <li>Date de naissance</li>
+                                    <li>{{connectedUser?.birthDate}}</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                            <div class="jp_listing_list_icon">
+                                <i class="fa fa-phone-square IconE"></i>
+                            </div>
+                            <div class="jp_listing_list_icon_cont_wrapper">
+                                <ul>
+                                    <li>Numero de telephone</li>
+                                    <li>{{connectedUser?.phone}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                            <div class="jp_listing_list_icon">
+                                <i class="far fa-clock IconE"></i>
+                            </div>
+                            <div class="jp_listing_list_icon_cont_wrapper">
+                                <ul>
+                                    <li>Années d'adhésions</li>
+                                    <div *ngFor="let m of connectedUser?.createDate">
+                                        <li>{{m.createDate}}</li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                <div class="related_job_wrapper jb_cover">
+                    <h1 class="related_job">Evenemets aux quels vous avez participé</h1>
+                    <div *ngFor="let e of connectedUser?.eventToParticipate">
+                        <div class="job_listing_left_fullwidth jb_cover" style="background-color: white">
+                            <div class="eventInfoFlex ">
+                                <div class="jp_job_post_side_img">
+                                    <img class="imgEventDim" src="http://localhost:8080/api/getfile/{{e.photoEvent}}"
+                                        alt="post_img" />
+                                </div>
+                                <div class="jp_job_post_right_cont eventNameMargin">
+                                    <h4>{{e.nameEvent}}</h4>
+                                    <ul>
+                                        <li><i class="flaticon-location-pointer IconE"></i>{{e.locationEvent}}</li>
+                                    </ul>
+                                </div>
+                                <div class="jp_job_post_right_btn_wrapper">
+                                    <ul>
+                                        <li>
+                                            <div class="job_adds_right StateMargin">
+                                                <h6>{{e.stateEvent}}</h6>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="counter_jbbb2 cover">
+        <img src="../../../../assets/images/line3.png" class="img-responsive" alt="img" />
+    </div>
+</div>
+
+<div class="modal fade apply_job_popup" id="updateProfile" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+
+                    <div class="apply_job jb_cover">
+                        <h1>Modifier votre profil :</h1>
+                        <form [formGroup]="updateProfileForm" (ngSubmit)="editProfile()">
+                            <div class="search_alert_box jb_cover">
+                                <label class="hoverable" for="fileInput">
+                                    <div *ngIf="!url ">
+                                        <img id="imgProfile"
+                                            src='http://localhost:8080/api/getfile/{{connectedUser?.photo}}'>
+
+                                    </div>
+                                    <div *ngIf='url'>
+                                        <img id="imgProfile" src='{{url}}'>
+
+                                    </div>
+                                    <div class="hover-text">choisir une autre photo </div>
+                                    <div class="background"></div>
+                                </label>
+                                <!-- <br/> -->
+                                <input id="fileInput" type='file' (change)="onSelectFile($event)">
+                                <button *ngIf="url" (click)="delete()">delete</button>
+                                <div class="apply_job_form">
+                                    <input type="text" class="form-control require" formControlName="fullName"
+                                        name="fullName" placeholder="Entrer votre nom et prénom">
+                                </div>
+                                <div class="apply_job_form">
+
+                                    <input type="text" class="form-control require" formControlName="email" name="email"
+                                        placeholder="Entrer votre email">
+                                </div>
+                                <div class="apply_job_form">
+
+                                    <input type="text" class="form-control require" formControlName="phone" name="phone"
+                                        placeholder="Entrer votre numéro de téléphone">
+                                </div>
+                                <div class="apply_job_form">
+
+                                    <input type="date" class="form-control require" formControlName="birthDate"
+                                        name="birthDate" placeholder="entrer votre date de naissance">
+                                </div>
+                                <div class="apply_job_form">
+
+                                    <input type="text" class="form-control require" formControlName="job" name="job"
+                                        placeholder="Entrer votre Profession">
+                                </div>
+
+                            </div>
+
+                            <div class="header_btn search_btn applt_pop_btn jb_cover">
+                                <!-- <a href="#">Modifier</a> -->
+                                <button type="submit" class="form-btn">Modifier</button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #updatePassword>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Modifier mot de passe</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-center">
+        <form [formGroup]="updatePasswordForm" (ngSubmit)="EditPassword()">
+            <div class="login_form_wrapper signUp_wrapper">
+                <div *ngIf="!notYetUpdatedPass">
+                    <div class="form-group icon_form comments_form">
+                        <input type="password" class="form-control require" formControlName="oldPassword"
+                            placeholder="Mot de passe*"  required />
+                        <i class="fas fa-lock"></i>
+                        <!-- <div class="alert alert-danger" *ngIf="
+                         updatePasswordForm.controls['oldPassword'].touched &&
+                         updatePasswordForm.controls['oldPassword'].errors ">
+                            * le mot de passe doit avoir au minimum 6 caractéres
+                        </div>
+                        <div *ngIf="submitted && updatePasswordControls.newPassword.errors" class="invalid-feedback">
+                            <div *ngIf="updatePasswordControls.newPassword.errors.required">
+                                * ce champ obligatoire
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div *ngIf="notYetUpdatedPass">
+                    <div class="form-group icon_form comments_form">
+                        <input type="password" class="form-control require" formControlName="newPassword"
+                            placeholder="Mot de passe*"  required />
+                        <i class="fas fa-lock"></i>
+                        <!-- <div class="alert alert-danger" *ngIf="
+                    updatePasswordForm.controls['newPassword'].touched &&
+                        updatePasswordForm.controls['newPassword'].errors">
+                            * le mot de passe doit avoir au minimum 6 caractéres
+                        </div>
+                        <div *ngIf="submitted && updatePasswordControls.newPassword.errors" class="invalid-feedback">
+                            <div *ngIf="updatePasswordControls.newPassword.errors.required">
+                                * ce champ obligatoire
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="form-group icon_form comments_form">
+                        <input type="password" class="form-control require" formControlName="confirmNewPassword"
+                            placeholder="Confirmer mot de passe*" required />
+                        <i class="fas fa-lock"></i>
+                        <!-- <div class="alert alert-danger" *ngIf="
+                    updatePasswordForm.controls['confirmNewPassword'].touched &&
+                    updatePasswordForm.controls['confirmNewPassword'].status ===
+                          'INVALID'
+                      ">
+                            *verifier que les mots de passe sont identiques
+                        </div>
+
+                        <div *ngIf="submitted && updatePasswordControls.confirmNewPassword.errors" class="invalid-feedback">
+                            <div *ngIf="updatePasswordControls.confirmNewPassword.errors.required">
+                                * ce champ obligatoire
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary annuler" (click)="modalRef.hide()">
+                        Annuler
+                    </button>
+                    <div *ngIf="!notYetUpdatedPass">
+
+                    <button type="submit" class="btn btn-primary save">Vérifier mon ancien mot de passe</button>
+                    </div>
+                    <div *ngIf="notYetUpdatedPass">
+                        <button (click)="saveNewPass()" class="btn btn-primary save">Modifier nouveau mot de passe</button>
+
+                        </div>
+
+
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-template>

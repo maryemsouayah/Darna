@@ -1,0 +1,161 @@
+.marginLeftDetailsMember{
+  padding-left: 25%;
+  padding-top:8%;
+  line-height: 3em;
+}
+.jp_blog_single_client_img{
+  padding-top: 25%;
+}
+.IconToBannirMember{
+  padding: 10px;
+  border-radius: 5px;
+  color:#ff4d4d  ;
+}
+.IconToActifMember {
+  padding: 10px;
+  border-radius: 5px;
+  color: limegreen;
+}
+.IconToActifMember:hover{
+  background-color: limegreen;
+  color: white;
+}
+.IconToBannirMember:hover {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.jp_blog_single_client_img img{
+  height: 80%;
+  width: 230%;
+  border-radius: 65%;
+}
+.icondetails{
+display: flex;
+flex-direction: row;
+align-items: center;
+margin-bottom: 2%;
+
+}
+.iconDMclass{
+  margin-right: 2%;
+}
+.detailsMember{
+  margin-top:4% ;
+}
+.detailsMember i {
+  color: #a54dff;
+}
+
+.form-btn {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  background-color: turquoise;
+  outline: none;
+  border: 0px;
+  cursor: pointer;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction:  row;
+  align-items:stretch;
+}
+
+.flex-container > .jb_cover {
+  border:1px solid;
+    flex-grow:2;
+
+}
+.flex-container > .ad {
+  flex-grow:3;
+    border:1px solid;
+    padding-left: 170px;
+    padding-right: 170px;
+
+}
+.video-details-container {
+  margin-right:100%;
+  width: 100%;
+  height: 80%;
+  padding: 30px;
+  overflow: auto;
+}
+
+.play-video{
+  padding-left:20%;
+}
+
+.similar {
+padding-top:3%;
+  padding-right:30%;
+
+}
+
+table thead tr th{ border: none; }
+table tbody tr td{ border: none; }
+.titre{
+  color:turquoise;
+  font-family: "Arial Black";
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.imgMember{
+  width: 220px;
+  height: 250px;
+}
+.imgEventDim{
+  width:180px;
+  height: 120px;
+}
+.eventNameMargin{
+  margin-left: 110px;
+}
+.eventInfoFlex{
+  display: flex;
+  flex-direction: row;
+  
+}
+.StateMargin{
+  margin-right: 50px;
+}
+.cover{
+  background-color: #f1efff;
+}
+.listsMember{
+  display:flex;
+  flex-direction: row; 
+  align-items:center
+}
+.IconE{
+  border-radius: 5px;
+  color:hsl(278, 61%, 57%)  ;
+}

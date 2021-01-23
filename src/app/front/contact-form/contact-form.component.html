@@ -1,0 +1,269 @@
+<div class="login_wrapper jb_cover">
+  <div class="line_shape">
+    <img
+      src="../../../../assets/images/line.png"
+      class="img-responsive"
+      alt="img"
+    />
+  </div>
+  <div class="container">
+
+    <div class="row">
+      <div class="counter_jbbb2 jb_cover">
+        <img
+          src="../../../../assets/images/line3.png"
+          class="img-responsive"
+          alt="img"
+        />
+      </div>
+      <div class="contact_icon_section jb_cover">
+
+        <div class="container contact">
+          <div class="language">
+            <span class="form-inline">
+              <select class="form-control lang" #selectedLang (change)="switchLang(selectedLang.value)">
+                <option *ngFor="let language of translate.getLangs()" [value]="language"
+                  [selected]="language === translate.currentLang">
+                  {{ language }}
+                </option>
+              </select>
+            </span>
+          </div>
+          <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
+              <div class="jb_heading_wraper">
+                <h3>{{'Contactez-Nous !' | translate}}</h3>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="contact_main jb_cover">
+                <h4> {{'Téléphone' | translate}}</h4>
+                <div class="contact_rotate">
+                  <i class="fas fa-phone"></i>
+                </div>
+
+                <p> {{'(+216) 29 50 87 87' | translate}} <br /></p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="contact_main jb_cover">
+                <h4> {{'Email' | translate}}</h4>
+                <div class="contact_rotate">
+                  <i class="fas fa-envelope"></i>
+                </div>
+
+                <p>contact@darna.tn <br /></p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="contact_main jb_cover">
+                <h4>{{'Adresse' | translate}}</h4>
+                <div class="contact_rotate">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+
+                <p> {{'49, Rue des Entrepreneurs - Ariana' | translate}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- contact info section end -->
+      <!-- map wrapper  start-->
+      <div class="map_wrapper_top jb_cover">
+        <div class="map_wrapper map2_wrapper">
+          <div #mapRef id="map">
+            <img
+              src="../../../../assets/images/loc.jpg"
+              class="img-responsive loc"
+              alt="img"
+            />
+          </div>
+        </div>
+
+        <div class="contact_field_wrapper comments_form">
+          <div class="jb_heading_wraper left_rivew_heading">
+            <h3> {{'Envoyer un message' | translate}}</h3>
+          </div>
+          <form [formGroup]="contactForm" (ngSubmit)="sendMail()">
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <div class="form-pos">
+                  <div class="form-group i-name">
+                    <label class="sr-only">{{'fullName' | translate}}</label>
+
+                    <input
+                      type="text"
+                      class="form-control require"
+                      formControlName="fullName"
+                      id="namTen-first"
+                      placeholder=" NomPrenom*"
+                      [ngClass]="{
+                        'is-invalid': submitted && form.fullName.errors
+                      }"
+                      required
+                    />
+                    <i class="fas fa-user-alt"></i>
+                    <div
+                      *ngIf="submitted && form.fullName.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="form.fullName.errors.required">
+                        * ce champ obligatoire
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- /.col-md-12 -->
+              <div class="col-lg-6 col-md-6">
+                <div class="form-e">
+                  <div class="form-group i-email">
+                    <label class="sr-only">{{'email' | translate}}</label>
+                    <input
+                      type="email"
+                      class="form-control require"
+                      formControlName="email"
+                      id="emailTen"
+                      placeholder=" email *"
+                      data-valid="email"
+                      [ngClass]="{
+                        'is-invalid': submitted && form.email.errors
+                      }"
+                    />
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div
+                    *ngIf="submitted && form.email.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="form.email.errors.required">
+                      * ce champ obligatoire
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-m">
+                  <div class="form-group i-message">
+                    <label class="sr-only">{{'message' | translate}}</label>
+
+                    <textarea
+                      class="form-control require"
+                      formControlName="message"
+                      rows="5"
+                      id="messageTen"
+                      placeholder=" message"
+                      [ngClass]="{
+                        'is-invalid': submitted && form.message.errors
+                      }"
+                    ></textarea>
+                    <i class="fas fa-comment"></i>
+                  </div>
+                  <div
+                    *ngIf="submitted && form.message.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="form.message.errors.required">
+                      * ce champ obligatoire
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col-md-12 -->
+              <div class="col-md-12">
+                <div class="tb_es_btn_div">
+                  <div class="response"></div>
+                  <div class="tb_es_btn_wrapper">
+                    <button>
+                      {{'Envoyer' | translate}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- map wrapper  end-->
+    </div>
+    <section class="section-team">
+      <div class="container">
+        <!-- Start Header Section -->
+        <div class="row justify-content-center text-center">
+          <div class="col-md-8 col-lg-6">
+            <div class="jb_heading_wraper">
+              <h3> {{'Nos responsables' | translate}}
+              </h3>
+            </div>
+          </div>
+        </div>
+        <!-- / End Header Section -->
+        <div class="row">
+          <!-- Start Single Person -->
+          <div class="col-sm-6 col-lg-4 col-xl-3">
+            <div class="single-person">
+              <div class="person-image">
+                <img src="https://i.ibb.co/nbpNr4r/person2.jpg" alt="" />
+              </div>
+              <div class="person-info">
+                <h3 class="full-name">{{'Président' | translate}}
+                </h3>
+                <p>{{'Elyes Boussaa' | translate}}</p>
+                <span class="speciality"> president@darna.tn</span>
+              </div>
+            </div>
+          </div>
+          <!-- / End Single Person -->
+          <!-- Start Single Person -->
+          <div class="col-sm-6 col-lg-4 col-xl-3">
+            <div class="single-person">
+              <div class="person-image">
+                <img src="https://i.ibb.co/25zdRMr/person3.jpg" alt="" />
+              </div>
+              <div class="person-info">
+                <h3 class="full-name">{{'Vice-président' | translate}}
+                </h3>
+                <p>{{'Issam Ourimi' | translate}}</p>
+                <span class="speciality">vp@darna.tn</span>
+              </div>
+            </div>
+          </div>
+          <!-- / End Single Person -->
+          <!-- Start Single Person -->
+          <div class="col-sm-6 col-lg-4 col-xl-3">
+            <div class="single-person">
+              <div class="person-image">
+                <img src="https://i.ibb.co/w0ynr2Q/person4.jpg" alt="" />
+              </div>
+              <div class="person-info">
+                <h3 class="full-name">  {{'Secrétaire générale' | translate}}
+                </h3>
+                <p> {{'Asma Gharbi' | translate}}</p>
+                <span class="speciality">sg@darna.tn</span>
+              </div>
+            </div>
+          </div>
+          <!-- / End Single Person -->
+          <!-- Start Single Person -->
+          <div class="col-sm-6 col-lg-4 col-xl-3">
+            <div class="single-person">
+              <div class="person-image">
+                <img src="https://i.ibb.co/G2CBWvb/person1.jpg" alt="" />
+              </div>
+              <div class="person-info">
+                <h3 class="full-name">{{'Trésorier' | translate}}
+                </h3>
+                <P> {{'Skander Boussaa' | translate}}</P>
+                <span class="speciality">tresorier@darna.tn</span>
+              </div>
+            </div>
+          </div>
+          <!-- / End Single Person -->
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

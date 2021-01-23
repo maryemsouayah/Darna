@@ -1,0 +1,126 @@
+<div class="job_single_wrapper jb_cover cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="job_filter_category_sidebar jb_cover" style="background-color: white">
+                    <div class="job_filter_sidebar_heading jb_cover">
+                        <h1>Details membre</h1>
+                    </div>
+                    <div class="job_overview_header jb_cover">
+                        <div class="jb_job_overview_img">
+                            <img class=" imgMember" src="http://localhost:8080/api/getfile/{{currentMember?.photo}}"
+                                alt="member picture" />
+                            <ul class="job_single_lists listsMember">
+                                <li ><h5 class="card-title">{{currentMember?.fullName}}</h5>
+                                </li>
+                                <li>
+                                    <div class="header_btn search_btn part_time_btn jb_cover" style="margin-left: 0%;">
+                                        <i *ngIf="currentMember?.status ==='actif'"
+                                            class="fa fa-ban fa-sm IconToBannirMember"
+                                            (click)="updateStateMembers(currentMember._id)" title="bannir ce membre">
+                                        </i>
+                                        <i *ngIf="currentMember?.status ==='banni'"
+                                            class="fas fa-toggle-on IconToActifMember"
+                                            (click)="updateStateMembers(currentMember._id)" title="activer ce membre">
+                                        </i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="jp_listing_overview_list_main_wrapper jb_cover" style="margin-top:-10%;">
+                            <div class="jp_listing_list_icon">
+                                <i class="fa fa-envelope IconE" ></i>
+                            </div>
+                            <div class="jp_listing_list_icon_cont_wrapper" >
+                                <ul>
+                                    <li>Adresse mail</li>
+                                    <li>{{currentMember?.email}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                            <div class="jp_listing_list_icon">
+                                <i class="fa fa-briefcase IconE"></i>
+                            </div>
+                            <div class="jp_listing_list_icon_cont_wrapper">
+                                <ul>
+                                    <li>Profession</li>
+                                    <li>{{currentMember?.job}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                            <div class="jp_listing_list_icon">
+                                <i class="far fa-calendar IconE"></i>
+                            </div>
+                            <div class="jp_listing_list_icon_cont_wrapper">
+                                <ul>
+                                    <li>Date de naissance</li>
+                                    <li>{{currentMember?.birthDate}}</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                            <div class="jp_listing_list_icon">
+                                <i class="fa fa-phone-square IconE"></i>
+                            </div>
+                            <div class="jp_listing_list_icon_cont_wrapper">
+                                <ul>
+                                    <li>Numero de telephone</li>
+                                    <li>{{currentMember?.phone}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                            <div class="jp_listing_list_icon">
+                                <i class="far fa-clock IconE"></i>
+                            </div>
+                            <div class="jp_listing_list_icon_cont_wrapper">
+                                <ul>
+                                    <li>Années d'adhésions</li>
+                                    <div *ngFor="let m of currentMember?.createDate">
+                                        <li>{{m.createDate}}</li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                <div class="related_job_wrapper jb_cover">
+                    <h1 class="related_job">Événemets auxquels il a participé</h1>
+                    <div *ngFor="let e of currentMember?.eventToParticipate">
+                        <div class="job_listing_left_fullwidth jb_cover" style="background-color: white">
+                            <div class="eventInfoFlex ">
+                                <div class="jp_job_post_side_img">
+                                    <img class="imgEventDim" src="http://localhost:8080/api/getfile/{{e.photoEvent}}"
+                                        alt="post_img" />
+                                </div>
+                                <div class="jp_job_post_right_cont eventNameMargin">
+                                    <h4>{{e.nameEvent}}</h4>
+                                    <ul>
+                                        <li><i class="flaticon-location-pointer IconE"></i>{{e.locationEvent}}</li>
+                                    </ul>
+                                </div>
+                                <div class="jp_job_post_right_btn_wrapper">
+                                    <ul>
+                                        <li>
+                                            <div class="job_adds_right StateMargin">
+                                                <h6>{{e.stateEvent}}</h6>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="counter_jbbb2 cover">
+        <img src="../../../../assets/images/line3.png" class="img-responsive" alt="img" />
+      </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="pricing_table_3 recent_resume_wrapper jb_cover">
+    <div class="slider_small_shape44">
+        <img src="../../../../assets/images/p2.png" class="img-responsive " alt="img">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
+                <div class="jb_heading_wraper">
+                    <h1>Liste des demandes</h1>
+                </div>
+            </div>
+            <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
+                <div class="jb_heading_wraper">
+
+                    <div *ngIf="demands?.length==0 " class="alert alert-danger" >
+                        <h5>Vide</h5>
+                    </div>
+                </div>
+
+            <div *ngIf="demands?.length != 0" class="listeDemandeflex">
+            <div *ngFor="let demand of demands | paginate: { itemsPerPage: 8, currentPage: pd };" class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="jp_recent_resume_box_wrapper jb_cover">
+                    <div class="jp_recent_resume_img_wrapper">
+
+                        <img src="http://localhost:8080/api/getfile/{{demand?.photo}}" alt="resume_img" />
+                    </div>
+                    <div class="jp_recent_resume_cont_wrapper">
+
+                        <h4> {{demand.fullName}}</h4>
+
+                        <p><i class="fas fa-suitcase"></i>{{demand.job}}</p>
+                    </div>
+                    <div class="DemansBtnsFlex">
+                        <a role="button1"  (click)="acceptDemand(demand)">
+                            <i class="fa fa-check fa-lg IconToAcceptDemande" ></i>
+
+                        </a>
+                        <a role="button2"  (click)="refuseDemand(demand._id)">
+                            <i class="fas fa-trash-alt fa-lg IconToDeleteDemande"> </i>
+                            </a>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+        </div>
+        <div class="counter_jbbb2 jb_cover">
+            <img src="../../../../assets/images/line3.png" class="img-responsive" alt="img">
+        </div>
+        </div>
+        
+        <div style="float: right;">
+            <pagination-controls (pageChange)="pd = $event"></pagination-controls>
+        </div>
+        <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+            <p style="color: white">Please Wait. </p>
+        </ngx-spinner>

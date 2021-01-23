@@ -1,0 +1,175 @@
+<div class="company_details_wrapper"></div>
+<div class="webstrot_tech_detail jb_cover cover">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="job_listing_left_fullwidth jb_cover">
+          <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-12 col-12">
+              <h1 style="color: #1dcec8">{{currentEvent?.nameEvent }}</h1>
+              <br />
+              <div class="styleInfoEvent">
+                <h6>
+                  <i class="flaticon-location-pointer IconE"></i>{{ currentEvent?.lieu }}
+                </h6>
+                <h6><i class="fas fa-hourglass-start IconE"></i> {{ currentEvent?.dateBeginEvent | date: 'dd/MM/yyyy' }}
+                </h6>
+                <h6><i class="fas fa-hourglass-end IconE"></i> {{ currentEvent?.dateEndEvent | date: 'dd/MM/yyyy'}}
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+        <div class="jb_listing_single_overview jb_cover" style="background-color: white">
+          <div class="jp_job_des jb_cover">
+            <h2 class="job_description_heading">Description</h2>
+            <p>{{ currentEvent?.description }}</p>
+          </div>
+          <div class="jp_job_res jb_cover">
+            <h2 class="job_description_heading">
+              Informations supplémentaires </h2>
+            <p> Nombre des membres qui doivent participer :
+              {{ currentEvent?.numberMember }}
+            </p>
+            <br />
+            <p>
+              Date début de l'inscription des membres : {{ currentEvent?.dateBeginRegister | date: 'dd/MM/yyyy' }}
+            </p>
+            <br />
+            <p>Date fin de l'inscription des membres : {{ currentEvent?.dateEndRegister | date: 'dd/MM/yyyy'}}</p>
+          </div>
+          <div class="imgEvent">
+            <img src="http://localhost:8080/api/getfile/{{ currentEvent?.photo }}" alt="event picture" width="728px" />
+          </div>
+          <div class="jp_job_res jp_listing_left_wrapper jb_cover">
+            <div class="container">
+              <div class="card">
+                <div class="commentbox"><br>
+                  <div class="col-12 col-sm-12 header">
+                    <h4>Commentaires ({{count}})</h4>
+                  </div><br>
+                  <div class="col-12 col-sm-12 body">
+                    <div class="comment-container">
+                      <div class="comment-form">
+                        <form [formGroup]="childForm" (ngSubmit)="AddComment(currentEvent?._id)">
+                          <div class="form-group">
+                            <textarea class="form-control" placeholder="Ecrivez un commentaire...."
+                              formControlName="text"
+                              [ngClass]="{ 'is-invalid': submitted && childForm.controls['text'].errors }"></textarea>
+                            <div class="invalid-feedback" *ngIf="submitted && childForm.controls['text'].errors">
+                              <div *ngIf="childForm.controls['text'].errors.required">Comment is required</div>
+                              <div *ngIf="childForm.controls['text'].errors.minlength">Comment must be at least 6
+                                characters</div>
+                              <div *ngIf="childForm.controls['text'].errors.maxlength">Comment must be at most 100
+                                characters</div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <button type="submit" class="publier">Publier</button>
+                          </div>
+                        </form>
+                        <div class="comments-container" *ngFor="let com of currentComm">
+                          <ul id="comments-list" class="comments-list">
+                            <li>
+                              <div class="comment-main-level">
+                                <div class="comment-avatar"><img src="http://localhost:8080/api/getfile/{{ com?.photo }}" alt="">
+                                </div>
+                                <div class="comment-box">
+                                  <div class="comment-head">
+                                    <h6 class="comment-name by-author">{{com.user}}</h6>
+                                    <span>{{com.date | date: 'dd/MM/yyyy' }}</span>
+                                   <!--  <a title="modifié">
+                                     <i class="fa fa-edit"></i></a> -->
+                                     <div *ngIf="com.user === user.fullName">
+                                    <a role="button3" (click)="deleteComment(currentEvent._id)"  title="supprimer">
+                                    <i class="fa fa-trash-alt"></i></a></div>
+                                  </div>
+                                  <div class="comment-content">{{com?.text}} </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+        <div class="job_filter_category_sidebar jb_cover">
+          <div class="job_filter_sidebar_heading jb_cover">
+            <h1>Participants</h1>
+          </div>
+          <div class="job_overview_header jb_cover" style="background-color: white">
+            <div class="jp_listing_overview_list_main_wrapper jb_cover row" *ngIf=" user?.role === 'admin'">
+              <div class="jp_listing_list_icon_cont_wrapper listsParticipantsFlex " *ngFor="let p of participants">
+                <div class="mailParticipant col-md-7">
+                  <div class="styleInfoEvent">
+                    <i class="fas fa-user IconE"></i>
+                    <h6>{{p.fullName}}</h6>
+                  </div>
+                </div>
+                <div class="col-md-7 marginLeftIcon">
+                  <a role="button1" *ngIf="p.etat==='non valide' && user?.role === 'admin'"
+                    (click)="validParticipant(currentEvent._id,p.emailP)">
+                    <i class="fa fa-check fa-lg IconToAcceptParticipant"></i>
+                  </a>
+                  <a role="button2" *ngIf="p.etat==='non valide' && user?.role === 'admin'"
+                    (click)="refuserParticipant(currentEvent._id,p.emailP)">
+                    <i class="fas fa-trash-alt fa-lg IconToRefuserParticipant"> </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="jp_listing_overview_list_main_wrapper jb_cover" *ngIf=" user?.role === 'member'">
+              <div class="jp_listing_list_icon_cont_wrapper listsParticipantsFlex" *ngFor="let pv of parValid">
+                <div class="styleInfoEvent mailParticipant ">
+                  <i class="fas fa-user IconE"></i>
+                  <h6>{{pv.fullName}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="counter_jbbb2 cover">
+  <img src="../../../../assets/images/line3.png" class="img-responsive" alt="img" />
+</div>
+<!-- <ng-template #updateEvent>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modifier un événement</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <form [formGroup]="updateFormComment" (ngSubmit)="updateComment()">
+      <div class="login_form_wrapper signup_wrapper">
+        <div class="form-group icon_form comments_form">
+          <input rows="4" cols="40" class="form-control require" formControlName="text"
+            placeholder="Description de l'évenement*" [ngClass]="{'is-invalid':submitted && updateCommentControls.text.errors }" required />
+          <div *ngIf="submitted && updateCommentControls.text.errors" class="invalid-feedback">
+            <div *ngIf="updateCommentControls.text.errors.required">
+              * ce champ obligatoire
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary annuler" (click)="modalRef.hide()">
+          Annuler
+        </button>
+        <button type="submit" class="btn btn-primary save">Modifier</button>
+      </div>
+    </form>
+  </div>
+</ng-template> -->
